@@ -1,0 +1,29 @@
+git git init 
+git status 
+
+git log 
+	can use git log -n to see n lines 
+	git log -graph 
+ls -a 
+git diff 
+
+after every change:
+git add file.exe 
+git commit -m "description" 
+
+
+git show or diff HEAD~n file.exe changes since n commits 
+
+git checkout HEAD mars.txt last commit 
+git checkout identifier mars.txt particular version 
+
+make repository online 
+git remote add origin url 
+git push origin HEAD:master
+git pull origin master 
+
+
+Rosanne-Hasan
+Rh123$%^789
+
+

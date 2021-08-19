@@ -1,0 +1,56 @@
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import re
+import matplotlib.cm as cm
+#from matplotlib.cm import get_cmap
+import argparse
+from numpy import savetxt
+
+parser = argparse.ArgumentParser()
+parser.add_argument("title")
+args = parser.parse_args()
+
+z0 = []
+eta = []
+x = np.linspace(-300,300)
+with open("z0.txt", 'r') as f:
+
+   for line in f:
+      if re.search("z0", line):
+         z = re.findall(r"[-+]?\d*\.\d+|\d+", line)
+         z0.append(float(z[1]))
+
+#print(z0)
+
+
+with open("n.txt", 'r') as f:
+   for line in f:
+      if re.search("eta", line):
+
+         n = re.findall(r"[-+]?\d*\.\d+|\d+", line)
+         num = float(n[0])
+         add = float("{:.8f}".format(float(num)))
+         eta.append(add)
+
+#eta = np.array(eta)
+print(eta)
+#print(max(eta))
+#savetxt('eta',eta)
+
+#print(max(eta))
+t = np.arange(len(eta))
+L = len(eta)
+plt.scatter(z0,eta,c=t, cmap='gist_rainbow')
+plt.xlabel('z0')
+plt.ylabel('eta')
+
+
+plt.title("{} tracks = %.2f".format(args.title) %L )
+
+
+
+
+plt.savefig("z_eta_{}.png".format(args.title))
+
+~

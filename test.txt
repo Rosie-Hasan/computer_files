@@ -1,0 +1,4 @@
+wget https://raw.githubusercontent.com/StewMH/OptimisationWorkshop/master/Exercise_1/Exercise_1.py
+time python Exercise_1.py
+#modify to use threads
+time python Exercise_1_two_threads.py

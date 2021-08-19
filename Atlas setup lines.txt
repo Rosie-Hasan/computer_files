@@ -1,0 +1,199 @@
+#### unix split screen 
+:split new_file 
+ctrl w j or k 
+Press d to cut (or y to copy).
+Move to where you would like to paste.
+Press P to paste before the cursor, or p to paste after.
+
+
+source ~/public/.bashrc
+SITE_NAME=CERN-PROD 
+export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
+alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh' 
+setupATLAS
+asetup 22.0.39,Athena 
+
+
+source x86_64-centos7-gcc8-opt/setup.sh  #in bld directory 
+
+
+#test bed machines 
+ssh -X pc-tbed-pub-22
+source ~/public/.bashrc
+SITE_NAME=CERN-PROD 
+unalias rm
+
+python -m cProfile
+sort -n -k 4 output2
+
+
+cp `which test_trig_data_v1Dev_build.py` .  #gets fresh copy 
+ex.args = '-c "{:s}" --stdcmalloc'.format(precommand)
+ex.args = '-c "{:s}" --stdcmalloc --preloadlib=/cvmfs/atlas.cern.ch/repo/sw/software/22.0/sw/lcg/releases/LCG_100_ATLAS_4/jemalloc/5.2.1/x86_64-centos7-gcc8-opt/lib/libjemalloc.so'.format(precommand)
+'-c "{:s}" --stdcmalloc --preloadlib=./mimalloc/out/release/libmimalloc.so'.format(precommand)
+'-c "{:s}" --stdcmalloc --preloadlib=/cvmfs/atlas.cern.ch/repo/sw/software/22.0/sw/lcg/releases/LCG_100_ATLAS_4/tbb/2020_U2/x86_64-centos7-gcc8-opt/lib/libtbbmalloc.so'.format(precommand)
+
+ex.max_events = 100 
+
+./test_trig_data_v1Dev_build.py &> output &
+
+watch -n 1 -d tail athena.log
+
+quota: fs lq 
+
+prmon -- program.exe
+
+#find the average run time of the events 
+grep 'PerfMonSvc.*evt' athena.log -A 1 | grep 'PerfMon.*<cpu.*ms'
+grep 'PerfMonMTSvc' athena.log | grep 'Events per'
+
+
+#check number of events 
+ grep "start processing" athena.log
+
+#permision denied 
+chmod +x the_file_name
+
+scp -r mercury002.pp.rl.ac.uk:/scratch/newdirectory/subdirectory/tocopy rhasan@lxplus.cern.ch:~/current/
+
+
+
+cat ~/.ssh/config 
+Host pc-tbed-*
+   StrictHostKeyChecking no
+cp ~smh/public/config ~/.ssh
+
+nohup sh running_forks_threads.sh &> output_32 &
+
+
+
+#setting up: PerfMonMTSvc
+export GIT_USER=smh
+git atlas init-workdir https://:@gitlab.cern.ch:8443/atlas/athena.git
+cd athena
+git atlas addpkg TrigValTools
+cd ..
+mkdir bld
+cd bld
+cmake ../athena/Projects/WorkDir
+make
+
+
+#seetting up fast track 
+export GIT_USER=smh
+lsetup git 
+git atlas init-workdir https://:@gitlab.cern.ch:8443/atlas/athena.git
+cd athena
+git atlas addpkg TrigFastTrackFinder
+cd ..
+mkdir bld
+cd bld
+cmake ../athena/Projects/WorkDir
+make
+source x86_64-centos7-gcc8-opt/setup.sh
+
+
+
+
+ex.perfmon = False
+
+#return to previous directory 
+cd -
+
+#backup stuff
+/afs/cern.ch/ubackup/r/rhasan/
+https://twiki.cern.ch/twiki/bin/view/Main/RecoVerLxPlusFilEs
+
+
+#mimalloc 
+https://github.com/microsoft/mimalloc
+#in mimalloc folder 
+mkdir -p out/release
+cd out/release
+cmake ../..
+make
+
+awk '/Offline/,/HLT/' read >| offline.txt
+
+
+https://discuss.devopscube.com/t/how-to-comment-and-uncomment-multiple-line-vi-terminal-editor/64
+https://resources.web.cern.ch/resources/Manage/AFS/Settings.aspx 
+
+
+
+np.save('HLT_dict.npy',HLT_dict)
+HLT_dict = np.load('HLT_dict.npy', allow_pickle='TRUE').item()
+
+
+
+
+Read 0.01, before matching events: 
+HLTvsOff  efficiency= 4.334071496361911 %
+LRTvsOff efficiency= 3.796495542576084 %
+HLTvsTruth total= 6322 efficiency= 83.99240746599177 %
+LRTvsTruth efficiency= 80.63326160467261 %
+OffvsTruth efficiency= 75.70365577483015 %
+
+
+test file, with matching of events, 0.01: 
+HLTvsOff matched= 30 total= 96 efficiency= 31.25 %
+LRTvsOff matched= 45 total= 86 efficiency= 52.32558139534884 %
+HLTvsTruth matched= 0 total= 96 efficiency= 0.0 %
+LRTvsTruth matched= 5 total= 86 efficiency= 5.813953488372093 %
+OffvsTruth matched= 58 total= 3161 efficiency= 1.834862385321101 %
+
+test file, with matching of events, 0.1: 
+HLTvsOff matched= 90 total= 96 efficiency= 93.75 %
+LRTvsOff matched= 83 total= 86 efficiency= 96.51162790697676 %
+HLTvsTruth matched= 24 total= 96 efficiency= 25.0 %
+LRTvsTruth matched= 16 total= 86 efficiency= 18.6046511627907 %
+OffvsTruth matched= 203 total= 3161 efficiency= 6.422018348623854 %
+
+
+
+ 526945170 function calls (526934183 primitive calls) in 314.949 seconds
+ 357/2    0.002    0.000    1.679    0.840 <frozen importlib._bootstrap>:956(_find_and_load_unlocked)
+    361/2    0.003    0.000    1.679    0.840 <frozen importlib._bootstrap>:986(_find_and_load)
+       27    0.002    0.000    2.269    0.084 __init__.py:1(<module>)
+        4    2.328    0.582    2.328    0.582 {built-in method _pickle.load}
+        4    0.000    0.000    2.339    0.585 format.py:695(read_array)
+        4    0.000    0.000    2.340    0.585 npyio.py:291(load)
+        6    0.000    0.000    5.078    0.846 __init__.py:2763(_create)
+        6    0.000    0.000    5.078    0.846 __init__.py:2783(create_image)
+        6    0.001    0.000    5.334    0.889 _backend_tk.py:177(__init__)
+      504    6.384    0.013    6.384    0.013 {method 'call' of '_tkinter.tkapp' objects}
+        6    0.000    0.000    7.051    1.175 _backend_tk.py:879(new_figure_manager_given_figure)
+        6    0.000    0.000    7.057    1.176 backend_bases.py:3487(new_figure_manager)
+        6    0.000    0.000    7.057    1.176 pyplot.py:312(new_figure_manager)
+        6    0.000    0.000    7.058    1.176 pyplot.py:555(figure)
+131899366   12.138    0.000   12.138    0.000 {built-in method builtins.abs}
+262753144   64.832    0.000   64.832    0.000 {method 'format' of 'str' objects}
+131375747  152.330    0.000  229.297    0.000 efficiency.py:14(match)
+        1   74.344   74.344  314.951  314.951 efficiency.py:1(<module>)
+    633/1    0.006    0.000  314.951  314.951 {built-in method builtins.exec}
+
+
+
+
+
+ 426491079 function calls (426480092 primitive calls) in 291.882 seconds
+
+ 4    2.455    0.614    2.455    0.614 {built-in method _pickle.load}
+        4    0.000    0.000    2.466    0.616 format.py:695(read_array)
+        4    0.000    0.000    2.466    0.617 npyio.py:291(load)
+       27    0.002    0.000    2.479    0.092 __init__.py:1(<module>)
+        6    0.000    0.000    4.879    0.813 __init__.py:2763(_create)
+        6    0.000    0.000    4.879    0.813 __init__.py:2783(create_image)
+        6    0.001    0.000    5.146    0.858 _backend_tk.py:177(__init__)
+      504    6.660    0.013    6.660    0.013 {method 'call' of '_tkinter.tkapp' objects}
+        6    0.000    0.000    7.362    1.227 _backend_tk.py:879(new_figure_manager_given_figure)
+        6    0.000    0.000    7.368    1.228 backend_bases.py:3487(new_figure_manager)
+        6    0.000    0.000    7.369    1.228 pyplot.py:312(new_figure_manager)
+        6    0.000    0.000    7.369    1.228 pyplot.py:555(figure)
+213207800   19.859    0.000   19.859    0.000 {built-in method builtins.abs}
+212359651  148.360    0.000  168.219    0.000 efficiency.py:11(match)
+        1  111.631  111.631  291.883  291.883 efficiency.py:1(<module>)
+    633/1    0.006    0.000  291.883  291.883 {built-in method builtins.exec}
+
+  
+
